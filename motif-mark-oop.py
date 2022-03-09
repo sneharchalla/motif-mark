@@ -175,7 +175,40 @@ class draw_fig(object):
 		self.context.stroke()
 		self.surface.write_to_png('Figure_1.png')
 
-	
+	def legend(self): 
+		''' This function  displays the legend in its correct color '''
+		self.context.set_source_rgb(0, 0, 0)
+        
+        # approximate text height
+		self.context.set_font_size(25)
+        
+        # Font Style
+		self.context.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_NORMAL)
+        
+        # position for the text
+		self.context.move_to(10, 390)
+        
+        # displays the text
+		self.context.set_source_rgb(0.7, 0.7, 0.7)
+		self.context.show_text("LEGEND:")
+		self.context.move_to(10, 420)
+		self.context.set_source_rgb(0.5, 0, 0)
+		self.context.show_text("ygcy")
+		self.context.move_to(10, 450)
+		self.context.set_source_rgb(0, 0.5, 0)
+		self.context.show_text("GCAUG")
+		self.context.move_to(10, 480)
+		self.context.set_source_rgb(0, 0, 0.5)
+		self.context.show_text("catag")
+		self.context.move_to(10, 510)
+		self.context.set_source_rgb(0.5, 0.5, 0.5)
+		self.context.show_text("YYYYYYYYYY")
+
+        
+        # stroke out the color 
+		self.context.stroke()
+		self.surface.write_to_png('Figure_1.png')
+
 	
 
 	def core_logic(self):
@@ -324,7 +357,7 @@ class draw_fig(object):
 					self.context.set_source_rgb(0.5, 0.5, 0.5) 
 					self.st_line()
 				
-		
+		self.legend()
 
 #Instantiating objects:
 my_obj = Seq(m, f)
